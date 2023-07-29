@@ -4,15 +4,21 @@ import data from './data.js';
 
 export default function Instagram() {
   return (
-    <View style={styles.container}>
+    <View>
+      <View style={styles.container}>
+        <Text>{'\n'}</Text>
+        <Text>Instagram Feed {'\n'}</Text>
+        <statusbar style="auto" />
+      </View>
       <FlatList
         data={data.articles}
         keyExtractor={item => item.id.toString()}
+        showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
           <View style={styles.itemContainer}>
-            <Image 
-            source={item.image} 
-            style={styles.itemImage} 
+            <Image
+              source={item.image}
+              style={styles.itemImage}
             />
             <Text>Name: {item.name}</Text>
             <Text>Likes: {item.likes}</Text>
@@ -28,14 +34,14 @@ export default function Instagram() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'azure',
     alignItems: 'center',
     justifyContent: 'center',
   },
   itemContainer: {
     padding: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    borderBottomColor: 'lightgray',
   },
   itemImage: {
     width: '100%',
