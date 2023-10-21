@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'react-native';
 import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
 import data from './data.js';
 
@@ -8,7 +8,7 @@ export default function Instagram() {
       <View style={styles.container}>
         <Text>{'\n'}</Text>
         <Text>Instagram Feed {'\n'}</Text>
-        <statusbar style="auto" />
+        <StatusBar style="auto" />
       </View>
       <FlatList
         data={data.articles}
