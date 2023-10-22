@@ -1,13 +1,41 @@
 import { StatusBar } from 'react-native';
-import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
-import data from './data.js';
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Image,
+  TouchableOpacity,
+  SafeAreaView
+} from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import Stories from './Stories';
+import data from './data';
+
+const INSTAGRAM_LOG =
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png';
 
 export default function Instagram() {
+  function renderItem({ item, index }) {
+    if (index === 0) {
+      return (
+        <>
+          <View style={styles.Stories}>
+            <Stories stories={data.stories} profile={data.profile} />
+          </View>
+        </>
+      )
+    } else {
+      return;
+    }
+  }
   return (
-    <View>
-      <View style={styles.container}>
-        <Text>{'\n'}</Text>
-        <Text>Instagram Feed {'\n'}</Text>
+    <SafeAreaView style={styles.container}>
+      <StatusBar style="dark" />
+      <View style={styles.header}>
+        <TouchableOpacity>
+          <Feather name="camera" size={24} color="black" />
+        </TouchableOpacity>
         <StatusBar style="auto" />
       </View>
       <FlatList
@@ -27,7 +55,7 @@ export default function Instagram() {
         )}
       />
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
