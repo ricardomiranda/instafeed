@@ -1,11 +1,12 @@
 const database = {
-  profile: {avatar: require("../assets/images/avatars/1.jpg")},
-
+  profile: {
+    avatar: require("../assets/images/avatars/1.jpg")
+  },
   stories: [
     {
       id: 1,
       avatar: require("../assets/images/avatars/1.jpg"),
-      name: "The Future of Tech",
+      name: "Cado Ado",
       isSeen: false,
     },
     {
@@ -25,7 +26,7 @@ const database = {
     {
       id: 1,
       avatar: require("../assets/images/avatars/1.jpg"),
-      name: "The Future of Tech",
+      name: "Cado Ado",
       image: require("../assets/images/posts/1.jpg"),
       likes: 200,
       commentsCount: 0,
@@ -42,7 +43,7 @@ const database = {
     },
     {
       id: 3,
-      avatar: require("../assets/images/avatars/3.jpg"),
+      avatar: require("../assets/images/avatars/2.jpg"),
       name: "Sustainable Energy",
       image: require("../assets/images/posts/3.jpg"),
       likes: 1000,
