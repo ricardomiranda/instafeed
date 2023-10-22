@@ -11,6 +11,7 @@ import {
 import { Feather } from '@expo/vector-icons';
 import Stories from './Stories';
 import data from './data';
+import Constants from 'expo-constants';
 
 const INSTAGRAM_LOGO =
   'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png';
@@ -46,19 +47,9 @@ export default function Instagram() {
 
       <FlatList
         data={data.articles}
+        renderItem={renderItem}
         keyExtractor={item => item.id.toString()}
         showsHorizontalScrollIndicator={false}
-        renderItem={({ item }) => (
-          <View style={styles.itemContainer}>
-            <Image
-              source={item.image}
-              style={styles.itemImage}
-            />
-            <Text>Name: {item.name}</Text>
-            <Text>Likes: {item.likes}</Text>
-            <Text>Comments: {item.comments}</Text>
-          </View>
-        )}
       />
       <StatusBar style="auto" />
     </SafeAreaView>
@@ -68,32 +59,34 @@ export default function Instagram() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'azure',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  itemContainer: {
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: 'lightgray',
+    paddingTime: Constants.statusBarHeight,
   },
   itemImage: {
     width: '100%',
     height: 200,
   },
   header: {
+    borderBottomWidth: 1,
+    borderColor: 'lightgray',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 15,
-  },
-  image: {
-    width: '100%',
-    height: 200,
+    paddingHorizontal: 15,
+    height: 50,
   },
   logo: {
     flex: 1,
     height: 50,
     resizeMode: 'contain',
+  },
+  stories: {
+    borderBottomWidth: 1,
+    borderColor: 'lightgray',
+    backgroundColor: 'white',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 15,
+    height: 100,
   },
 });

@@ -19,7 +19,7 @@ export default function Story({ avatar, name, isCreateStory = false, isSeen }) {
                         </View>
                     )}
                 </View>
-                <Text numberOfLines={1} style={styles.names}>
+                <Text numberOfLines={1} style={styles.name}>
                     {name}
                 </Text>
             </View>
@@ -29,18 +29,19 @@ export default function Story({ avatar, name, isCreateStory = false, isSeen }) {
 
 const styles = StyleSheet.create({
     user: {
-        width: '100%', // occupy full width of the parent component
-        paddingHorizontal: 10, // 10 pixels padding on left and right
+        width: 80,
+        paddingHorizontal: 4,
     },
     avatarBorder: {
-        width: 70, // 70 pixels width
-        height: 70, // 70 pixels height
-        borderRadius: 35, // half of width and height to make it a circle
-        borderWidth: 3, // 3 pixels width of the border
+        width: 50,
+        height: 50,
+        borderRadius: 25,
+        borderWidth: 1,
         borderColor: 'grey', // border color
-        margin: 5, // 5 pixels margin on all sides
-        alignItems: 'center', // center child elements horizontally
-        justifyContent: 'center', // center child elements vertically
+        margin: 4,
+        marginBottom: 8,
+        justifyContent: 'center', // center child elements horizontally
+        alignItems: 'center', // center child elements vertically
     },
     avatar: {
         width: 60, // 60 pixels width
@@ -58,12 +59,13 @@ const styles = StyleSheet.create({
         overflow: 'hidden', // hide child elements that exceed its dimensions
         alignItems: 'center', // center child elements horizontally
         justifyContent: 'center', // center child elements vertically
+        backgroundColor: 'blue',
     },
-    names: {
+    name: {
         textAlign: 'center', // center the text
         fontSize: 14, // 14 pixels font size
         lineHeight: 18, // 18 pixels line height
         color: '#333', // text color
-        maxWidth: '90%', // maximum width is 90% of the parent component's width
+        maxWidth: 64,
     },
 });
