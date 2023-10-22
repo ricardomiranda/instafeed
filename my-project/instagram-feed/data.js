@@ -43,7 +43,7 @@ const database = {
     },
     {
       id: 3,
-      avatar: require("../assets/images/avatars/2.jpg"),
+      avatar: require("../assets/images/avatars/3.jpg"),
       name: "Sustainable Energy",
       image: require("../assets/images/posts/3.jpg"),
       likes: 1000,
@@ -52,7 +52,7 @@ const database = {
     },
     {
       id: 4,
-      avatar: require("../assets/images/avatars/4.jpg"),
+      avatar: require("../assets/images/avatars/2.jpg"),
       name: "Virtual Reality",
       image: require("../assets/images/posts/4.jpg"),
       likes: 780,
