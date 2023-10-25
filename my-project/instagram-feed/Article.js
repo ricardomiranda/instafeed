@@ -36,16 +36,20 @@ export default function Article({ item }) {
 
             <View style={styles.action}>
                 <View style={styles.actionLeft}>
-                    <TouchableOpacity>
+                    <TouchableOpacity style={styles.actionButton}>
                         <Feather name="heart" size={24} color="black" />
                     </TouchableOpacity>
 
-                    <TouchableOpacity>
+                    <TouchableOpacity style={styles.actionButton}>
+                        <Feather name="message-circle" size={24} color="black" />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.actionButton}>
                         <Feather name="send" size={24} color="black" />
                     </TouchableOpacity>
 
                     <View>
-                        <TouchableOpacity>
+                        <TouchableOpacity style={styles.actionButton}>
                             <Feather name="bookmark" size={24} color="black" />
                         </TouchableOpacity>
                     </View>
@@ -102,11 +106,15 @@ const styles = StyleSheet.create({
         resizeMode: 'cover',
         marginVertical: 10,
     },
-    actions: {
+    action: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: 10,
+    },
+    actionLeft: {
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     actionButton: {
         flexDirection: 'row',

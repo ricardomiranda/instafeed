@@ -12,6 +12,7 @@ import { Feather } from '@expo/vector-icons';
 import Stories from './Stories';
 import data from './data';
 import Constants from 'expo-constants';
+import Article from './Article';
 
 const INSTAGRAM_LOGO =
   'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png';
@@ -24,6 +25,8 @@ export default function Instagram() {
           <View style={styles.Stories}>
             <Stories stories={data.stories} profile={data.profile} />
           </View>
+
+          <Article item={item} />
         </>
       )
     } else {
