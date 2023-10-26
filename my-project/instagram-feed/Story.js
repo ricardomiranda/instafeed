@@ -6,11 +6,15 @@ export default function Story({ avatar, name, isCreateStory = false, isSeen }) {
     return (
         <TouchableOpacity style={styles.user}>
             <View >
-                <View style={[styles.avatarBorder, {
-                    borderColor: isCreateStory
-                        ? "transparent" :
-                        isSeen ? "rgba(0, 0, 0, 0.0975" : "#c73191",
-                },]}>
+                <View style={[
+                    styles.avatarBorder, {
+                        borderColor: isCreateStory
+                            ? "transparent" :
+                            isSeen
+                                ? "rgba(0, 0, 0, 0.0975)"
+                                : "#c73191",
+                    },
+                ]}>
 
                     <Image source={avatar} style={styles.avatar} />
                     {isCreateStory && (
@@ -33,20 +37,19 @@ const styles = StyleSheet.create({
         paddingHorizontal: 4,
     },
     avatarBorder: {
-        width: 50,
-        height: 50,
+        width: 55,
+        height: 55,
         borderRadius: 25,
-        borderWidth: 1,
-        borderColor: 'grey', // border color
+        borderWidth: 2,
         margin: 4,
         marginBottom: 8,
         justifyContent: 'center', // center child elements horizontally
         alignItems: 'center', // center child elements vertically
     },
     avatar: {
-        width: 60, // 60 pixels width
-        height: 60, // 60 pixels height
-        borderRadius: 30, // half of width and height to make it a circle
+        width: 50,
+        height: 50,
+        borderRadius: 25,
     },
     plusIcon: {
         position: 'absolute', // position it absolutely

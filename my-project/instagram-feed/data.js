@@ -7,7 +7,7 @@ const database = {
       id: 1,
       avatar: require("../assets/images/avatars/1.jpg"),
       name: "Cado Ado",
-      isSeen: false,
+      isSeen: true,
     },
     {
       id: 2,
