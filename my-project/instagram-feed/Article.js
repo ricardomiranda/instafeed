@@ -58,13 +58,16 @@ export default function Article({ item }) {
 
             <View style={styles.info}>
                 <Text style={styles.likes}>likes</Text>
-                <Text style={styles.commentCount}>view all counts</Text>
+                <Text style={styles.comments}>view all counts</Text>
             </View>
         </View>
     )
 };
 
 const styles = StyleSheet.create({
+    article: {
+        marginBottom: 10,
+    },
     container: {
         flex: 1,
         backgroundColor: '#f9f9f9',
@@ -76,9 +79,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingHorizontal: 15,
-        paddingVertical: 10,
-        borderBottomWidth: 0.5,
-        borderColor: '#d3d3d3',
+        height: 50,
     },
     user: {
         flexDirection: 'row',
@@ -96,30 +97,45 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
     },
     avatar: {
-        width: 40,
-        height: 40,
-        borderRadius: 20,
+        width: 30,
+        height: 30,
+        borderRadius: 15,
     },
     image: {
         width: '100%',
-        height: 400,
-        resizeMode: 'cover',
-        marginVertical: 10,
+        height: null,
+        aspectRatio: 1,
+        resizeMode: 'contain',
+        margin: 0,
+        padding: 0,
+        backgroundColor: 'red',
     },
     action: {
         flexDirection: 'row',
-        alignItems: 'center',
         justifyContent: 'space-between',
-        padding: 10,
+        marginTop: 4,
+        paddingHorizontal: 8,
     },
     actionLeft: {
         flexDirection: 'row',
-        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    info: {
+        paddingHorizontal: 15,
+    },
+    likes: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        color: '#333',
+        marginBottom: 5,
+    },
+    comments: {
+        fontSize: 10,
+        color: '#999',
+        marginBottom: 5,
     },
     actionButton: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginHorizontal: 5,
+        marginRight: 15,
     },
     actionText: {
         marginLeft: 5,
@@ -136,11 +152,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#c73191',
         overflow: 'hidden',
     },
-    names: {
-        fontSize: 16,
-        lineHeight: 24,
+    name: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        lineHeight: 14,
         color: '#333',
         maxWidth: '90%',
         textAlign: 'center',
+        marginLeft: 10,
     },
 });
