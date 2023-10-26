@@ -127,6 +127,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: 'bold',
         color: '#333',
+        marginTop: 5,
         marginBottom: 5,
     },
     comments: {
