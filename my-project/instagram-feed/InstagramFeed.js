@@ -30,7 +30,7 @@ export default function Instagram() {
         </>
       )
     } else {
-      return;
+      return <Article item={item} />;
     }
   }
   return (
