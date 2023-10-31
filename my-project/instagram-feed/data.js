@@ -1,4 +1,4 @@
-const database = {
+const data = {
   profile: {
     avatar: require("../assets/images/avatars/1.jpg")
   },
@@ -47,7 +47,7 @@ const database = {
       name: "Sustainable Energy",
       image: require("../assets/images/posts/3.jpg"),
       likes: 1000,
-      commentsCount: 0,
+      commentsCount: 3,
       comments: 'View all 0 comments',
     },
     {
@@ -56,7 +56,7 @@ const database = {
       name: "Virtual Reality",
       image: require("../assets/images/posts/4.jpg"),
       likes: 780,
-      commentsCount: 0,
+      commentsCount: 66,
       comments: 'View all 0 comments',
     },
     {
@@ -65,18 +65,10 @@ const database = {
       name: "Space Exploration",
       image: require("../assets/images/posts/5.jpg"),
       likes: 3000,
-      commentsCount: 0,
+      commentsCount: 2,
       comments: 'View all 0 comments',
     },
   ],
-}
-
-const data = {
-  ...database,
-  articles: database.articles.map(article => ({
-    ...article,
-    comments: `View all ${article.commentsCount} comments`,
-  })),
 }
 
 export default data;
