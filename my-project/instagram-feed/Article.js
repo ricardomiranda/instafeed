@@ -13,8 +13,11 @@ import { Feather } from '@expo/vector-icons';
 
 export default function Article({ item }) {
 
-    const [Likes, setLikes] = useState(data.articles.find(a => a.id === item.id).likes);
+    const [likes, setLikes] = useState(data.articles.find(a => a.id === item.id).likes);
     const [isLiked, setIsLiked] = useState(false);
+    const [comment, setComment] = useState('');
+    const [comments, setComments] = useState(data.articles.find(a => a.id === item.id).comments);
+    const [commentsCount, setCommentsCount] = useState(data.articles.find(a => a.id === item.id).commentsCount);
 
     return (
         <View style={StyleSheet.article}>
@@ -70,8 +73,8 @@ export default function Article({ item }) {
             </View>
 
             <View style={styles.info}>
-                <Text style={styles.likes}>{Likes} likes</Text>
-                <Text style={styles.comments}>view all counts</Text>
+                <Text style={styles.likes}>{likes} likes</Text>
+                <Text style={styles.commentsCount}>view all {commentsCount} counts</Text>
             </View>
         </View>
     )
@@ -143,7 +146,7 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginBottom: 5,
     },
-    comments: {
+    commentsCount: {
         fontSize: 10,
         color: '#999',
         marginBottom: 5,
