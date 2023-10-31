@@ -1,5 +1,5 @@
-import dara from './data';
-import React from 'react';
+import data from './data';
+import React, { useState } from 'react';
 import {
     StyleSheet,
     Text,
@@ -12,6 +12,10 @@ import {
 import { Feather } from '@expo/vector-icons';
 
 export default function Article({ item }) {
+
+    const [Likes, setLikes] = useState(data.articles.find(a => a.id === item.id).likes);
+    const [isLiked, setIsLiked] = useState(false);
+
     return (
         <View style={StyleSheet.article}>
             <View style={styles.header}>
@@ -36,8 +40,17 @@ export default function Article({ item }) {
 
             <View style={styles.action}>
                 <View style={styles.actionLeft}>
-                    <TouchableOpacity style={styles.actionButton}>
-                        <Feather name="heart" size={24} color="black" />
+                    <TouchableOpacity style={styles.actionButton}
+                        onPress={() => {
+                            setIsLiked(!isLiked);
+                            if (isLiked) {
+                                setLikes(prevLikes => prevLikes - 1);
+                            } else {
+                                setLikes(prevLikes => prevLikes + 1);
+                            }
+                        }}
+                    >
+                        <Feather name="heart" size={24} color={isLiked ? "red" : "black"} />
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.actionButton}>
@@ -57,7 +70,7 @@ export default function Article({ item }) {
             </View>
 
             <View style={styles.info}>
-                <Text style={styles.likes}>likes</Text>
+                <Text style={styles.likes}>{Likes} likes</Text>
                 <Text style={styles.comments}>view all counts</Text>
             </View>
         </View>
