@@ -11,13 +11,21 @@ import {
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
+function getInitialState(item) {
+    const article = data.articles.find(a => a.id === item.id);
+    return {
+        commentsCount: article.commentsCount,
+        isLiked: false,
+        likes: article.likes,
+    };
+}
+
 export default function Article({ item }) {
 
-    const [likes, setLikes] = useState(data.articles.find(a => a.id === item.id).likes);
-    const [isLiked, setIsLiked] = useState(false);
-    const [comment, setComment] = useState('');
-    const [comments, setComments] = useState(data.articles.find(a => a.id === item.id).comments);
-    const [commentsCount, setCommentsCount] = useState(data.articles.find(a => a.id === item.id).commentsCount);
+    const intialState = getInitialState(item);
+    const [commentsCount, setCommentsCount] = useState(intialState.commentsCount);
+    const [isLiked, setIsLiked] = useState(intialState.isLiked);
+    const [likes, setLikes] = useState(intialState.likes);
 
     return (
         <View style={StyleSheet.article}>
