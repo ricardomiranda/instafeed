@@ -1,5 +1,6 @@
 import data from './data';
-import React, { useState } from 'react';
+import CustomPrompt from './CustomPrompt';
+import React, { useState, useEffect } from 'react';
 import {
     StyleSheet,
     Text,
@@ -7,7 +8,6 @@ import {
     Image,
     TouchableOpacity,
     TextInput,
-    Alert
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
@@ -21,11 +21,23 @@ function getInitialState(item) {
 }
 
 export default function Article({ item }) {
+    const [promptVisible, setPromptVisible] = useState(false);
 
     const intialState = getInitialState(item);
+    const [comment, setComment] = useState('');
     const [commentsCount, setCommentsCount] = useState(intialState.commentsCount);
     const [isLiked, setIsLiked] = useState(intialState.isLiked);
     const [likes, setLikes] = useState(intialState.likes);
+
+    useEffect(() => {   // Update the document title using the browser API  
+        console.log(comment);
+    }, [comment]);
+
+    function handleComment(text) {
+        setComment(text);
+        setCommentsCount(prevCommentsCount => prevCommentsCount + 1);
+        setPromptVisible(false); // Hide the prompt
+    };
 
     return (
         <View style={StyleSheet.article}>
@@ -64,7 +76,15 @@ export default function Article({ item }) {
                         <Feather name="heart" size={24} color={isLiked ? "red" : "black"} />
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.actionButton}>
+                    <CustomPrompt
+                        visible={promptVisible}
+                        onClose={() => setPromptVisible(false)}
+                        onSubmit={handleComment}
+                    />
+
+                    <TouchableOpacity style={styles.actionButton}
+                        onPress={() => setPromptVisible(true)} // Show the prompt when button is pressed
+                    >
                         <Feather name="message-circle" size={24} color="black" />
                     </TouchableOpacity>
 
